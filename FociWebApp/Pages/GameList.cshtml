@@ -1,0 +1,72 @@
+﻿@page
+@model FociWebApp.Pages.GameListModel
+
+@{
+    ViewData["Title"] = "GameList";
+}
+
+<h1>GameList</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].Round)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].HomeTeamHalfTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].AwayTeamHalfTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].HomeTeamGoals)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].AwayTeamGoals)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].HomeTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].AwayTeam)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Game) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Round)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamHalfTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamHalfTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamGoals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamGoals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
