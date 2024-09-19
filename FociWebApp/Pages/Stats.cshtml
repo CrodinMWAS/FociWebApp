@@ -1,0 +1,37 @@
+﻿@page
+@model FociWebApp.Pages.StatsModel
+@{
+    ViewData["Title"] = "League Stats";
+}
+<h1>Bajnokság Állása</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Ranking: </th>
+            <th>Team</th>
+            <th>Games Played</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Ties</th>
+            <th>Points</th>
+            <th>Goals Scored</th>
+            <th>Goals Conceded</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i != Model.stats.Count; i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@Model.stats[i].TeamName</td>
+                <td>@Model.stats[i].GamesPlayed</td>
+                <td>@Model.stats[i].Wins</td>
+                <td>@Model.stats[i].Losses</td>
+                <td>@Model.stats[i].Ties</td>
+                <td>@Model.stats[i].Points</td>
+                <td>@Model.stats[i].Goals</td>
+                <td>@Model.stats[i].GoalsConceded</td>
+            </tr>
+        }
+    </tbody>
+</table>

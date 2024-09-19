@@ -1,0 +1,64 @@
+﻿@page
+@model FociWebApp.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Game</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Game.Round" class="control-label"></label>
+                <input asp-for="Game.Round" class="form-control" />
+                <span asp-validation-for="Game.Round" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.HomeTeamHalfTime" class="control-label"></label>
+                <input asp-for="Game.HomeTeamHalfTime" class="form-control" />
+                <span asp-validation-for="Game.HomeTeamHalfTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.AwayTeamHalfTime" class="control-label"></label>
+                <input asp-for="Game.AwayTeamHalfTime" class="form-control" />
+                <span asp-validation-for="Game.AwayTeamHalfTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.HomeTeamGoals" class="control-label"></label>
+                <input asp-for="Game.HomeTeamGoals" class="form-control" />
+                <span asp-validation-for="Game.HomeTeamGoals" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.AwayTeamGoals" class="control-label"></label>
+                <input asp-for="Game.AwayTeamGoals" class="form-control" />
+                <span asp-validation-for="Game.AwayTeamGoals" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.HomeTeam" class="control-label"></label>
+                <input asp-for="Game.HomeTeam" class="form-control" />
+                <span asp-validation-for="Game.HomeTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.AwayTeam" class="control-label"></label>
+                <input asp-for="Game.AwayTeam" class="form-control" />
+                <span asp-validation-for="Game.AwayTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
