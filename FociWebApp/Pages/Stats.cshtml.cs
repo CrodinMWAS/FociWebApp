@@ -33,11 +33,13 @@ namespace FociWebApp.Pages
                 team.Wins = games.Count(x => x.WinnerTeam() == team.TeamName);
                 team.Losses = games.Count(x => x.WinnerTeam() == x.AwayTeam);
                 team.Ties = games.Count(x => x.WinnerTeam() == "");
-                team.GamesPlayed = team.Wins + team.Losses + team.Ties;
+                team.GamesPlayed = games.Count(x => x.HomeTeam == team.TeamName || x.AwayTeam == team.TeamName);
+                team.Goals = games.Where(x => x.HomeTeam == team.TeamName).Sum(x => x.HomeTeamGoals)
+                    + games.Where(x => x.AwayTeam == team.TeamName).Sum(x => x.AwayTeamGoals);
+                team.GoalsConceded = games.Where(x => x.HomeTeam == team.TeamName).Sum(x => x.AwayTeamGoals)
+                    + games.Where(x => x.AwayTeam == team.TeamName).Sum(x => x.HomeTeamGoals);
                 
-                //...
-
-                //Rendezés
+                stats = stats.OrderByDescending(x => x.Wins).ThenByDescending(x => x.Goals).ToList();
             }
         }
     }
